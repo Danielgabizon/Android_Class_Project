@@ -91,7 +91,7 @@
         app:layout_constraintStart_toEndOf="@+id/add_student_activity_save_button" />
 
     <TextView
-        android:id="@+id/add_student_activity_show_message_textview"
+        android:id="@+id/add_student_activity_show_message_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
