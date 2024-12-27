@@ -1,32 +1,26 @@
 package com.example.finalproject
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.finalproject.Adapters.StudentsAdapter
+import com.example.finalproject.model.Model
 
-class MainActivity : AppCompatActivity() {
+class StudentListViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_student_list_view)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // TODO: Step 1 - Add Student Button
-        // TODO: Step 2 - Navigate to AddStudentActivity
-        // TODO: Step 3 - Create AddStudent Layout
-        // TODO: Step 4 - Save Student
-
-        val addStudentButton: Button = findViewById(R.id.main_activity_add_student_button)
-        addStudentButton.setOnClickListener {
-            val intent: Intent = Intent(this, AddStudentActivity::class.java)
-            startActivity(intent)
-        }
+        val listViewL: ListView?= findViewById(R.id.students_list_view)
+        listViewL?.adapter = StudentsAdapter(Model.shared.students)
     }
+
 }
